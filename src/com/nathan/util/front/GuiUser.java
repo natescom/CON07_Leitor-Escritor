@@ -21,7 +21,8 @@ public class GuiUser {
   private final TitledPane pane;
   private final ImageView screen;
   private final Slider slider;
-  private final Rectangle poster;
+//  private final Rectangle poster;
+  private final ImageView poster;
 
   /**
    * Construtor
@@ -30,7 +31,7 @@ public class GuiUser {
    * @param poster           Retangulo com o poster do filme
    * @param slider           Slider com a velocidade de reproducao do filme
    */
-  public GuiUser(TitledPane pane, ImageView screen, Rectangle poster, Slider slider) {
+  public GuiUser(TitledPane pane, ImageView screen, ImageView poster, Slider slider) {
     this.pane = pane;
     this.screen = screen;
     this.poster = poster;
@@ -43,7 +44,8 @@ public class GuiUser {
    */
   public void publishMovie(Movie movie) {
     Platform.runLater(() -> {
-      poster.setFill(new ImagePattern(movie.getPoster()));
+      poster.setImage(movie.getPoster());
+//      poster.setFill(new ImagePattern(movie.getPoster()));
       screen.setImage(movie.getMovie());
     });
   }

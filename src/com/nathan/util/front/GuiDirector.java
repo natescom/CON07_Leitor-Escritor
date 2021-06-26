@@ -25,24 +25,24 @@ public class GuiDirector {
   private final ObservableList observableBuffer;
   private final ProgressBar progressBar;
   private final ImageView imageView;
-  private final Rectangle rectangle;
+  private final ImageView movieposter;
+//  private final Rectangle rectangle;
   private final Slider slider;
   private final Label label;
 
   /**
-   *
-   * @param observableBuffer  Lista usada para imprimir o conteudo do buffer
+   *  @param observableBuffer  Lista usada para imprimir o conteudo do buffer
    * @param progressBar       Barra de progresso
    * @param imageView         Imagem do diretor
-   * @param rectangle         Objeto para imprimir o poster do filme
+   * @param movieposter       Objeto para imprimir o poster do filme
    * @param slider            Slider com a velocidade da producao
    * @param label             Label para publicar o tempo restante
    */
-  public GuiDirector(ObservableList observableBuffer, ProgressBar progressBar, ImageView imageView, Rectangle rectangle, Slider slider, Label label) {
+  public GuiDirector(ObservableList observableBuffer, ProgressBar progressBar, ImageView imageView, ImageView movieposter, Slider slider, Label label) {
     this.observableBuffer = observableBuffer;
     this.progressBar = progressBar;
     this.imageView = imageView;
-    this.rectangle = rectangle;
+    this.movieposter = movieposter;
     this.slider = slider;
     this.label = label;
   }
@@ -52,7 +52,8 @@ public class GuiDirector {
    * @param movie
    */
   public void publishPoster(Movie movie) {
-    Platform.runLater(() -> this.rectangle.setFill(new ImagePattern(movie.getPoster())));
+    Platform.runLater(() -> movieposter.setImage(movie.getPoster()));
+//    Platform.runLater(() -> this.rectangle.setFill(new ImagePattern(movie.getPoster())));
   }
 
   /**
@@ -77,11 +78,15 @@ public class GuiDirector {
     Platform.runLater(() -> {
       observableBuffer.clear();
       buffer.forEach(o -> {
-        Rectangle rectangle = new Rectangle(241,136);
-        rectangle.setArcHeight(15);
-        rectangle.setArcWidth(15);
-        rectangle.setFill(new ImagePattern(((Movie) o).getPoster()));
-        observableBuffer.add(rectangle);
+        ImageView poster = new ImageView(((Movie)o).getPoster());
+        poster.setFitWidth(241);
+        poster.setFitHeight(136);
+        observableBuffer.add(poster);
+//        Rectangle rectangle = new Rectangle(241,136);
+//        rectangle.setArcHeight(15);
+//        rectangle.setArcWidth(15);
+//        rectangle.setFill(new ImagePattern(((Movie) o).getPoster()));
+//        observableBuffer.add(rectangle);
      });
     });
   }

@@ -58,14 +58,17 @@ public class Controller implements Initializable {
     GridPane gridPane = new GridPane();
     TitledPane titledPane = new TitledPane();
     ImageView imageView = new ImageView();
-    Rectangle poster = new Rectangle(175, 80);
+    ImageView poster = new ImageView();
+//    Rectangle poster = new Rectangle(175, 80);
     Slider slider = new Slider();
     // ATOS //
-    poster.setArcHeight(15);
-    poster.setArcWidth(15);
+//    poster.setArcHeight(15);
+//    poster.setArcWidth(15);
     gridPane.setVgap(10);
     imageView.setFitWidth(175);
     imageView.setFitHeight(100);
+    poster.setFitWidth(175);
+    poster.setFitHeight(100);
     slider.setMin(1);
     slider.setMax(500);
     slider.setValue(100);
@@ -89,14 +92,17 @@ public class Controller implements Initializable {
     Label label = new Label();
     Slider slider = new Slider();
     ImageView imageView = new ImageView();
-    Rectangle poster = new Rectangle(175, 80);
+    ImageView poster = new ImageView();
+//    Rectangle poster = new Rectangle(175, 80);
     ProgressBar progressBar = new ProgressBar();
     // ATOS //
     imageView.setImage(Gallery.USER_SMILE_GREEN);
     imageView.setFitWidth(40);
     imageView.setFitHeight(40);
-    poster.setArcHeight(15);
-    poster.setArcWidth(15);
+    poster.setFitWidth(175);
+    poster.setFitHeight(100);
+//    poster.setArcHeight(15);
+//    poster.setArcWidth(15);
     label.setStyle("-fx-text-fill: #ffffff;");
     progressBar.setStyle("-fx-accent: red");
     slider.setMin(1);
